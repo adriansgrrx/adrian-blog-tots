@@ -66,24 +66,29 @@ When you are ready to persist data to Neon:
 
 ## 🚀 Deployment Guide (Separate Deployments)
 
-### 1. Backend on Railway (Express)
+### 1. Backend on Render (Express + Prisma)
 1. Push this monorepo to GitHub.
-2. In [Railway.app](https://railway.app), click **New Project** → **Deploy from GitHub repo**.
-3. In the service **Settings**:
-   - Set **Root Directory**: `server`
-   - Set **Build Command**: `npm install && npx prisma generate`
-   - Set **Start Command**: `npm start`
-4. Add Environment Variables on Railway:
-   - `DATABASE_URL`: Your Neon connection string.
-   - `ADMIN_SECRET_KEY`: Your secret key.
-   - `CORS_ORIGIN`: Your Vercel frontend URL.
-5. Railway provides you a public URL (e.g. `https://adrian-blog-api.up.railway.app`).
+2. In [Render Dashboard](https://dashboard.render.com):
+   - Click **New +** → **Web Service** (or **Blueprint** to use `render.yaml`).
+   - Connect your GitHub repository.
+3. If setting up manually as a Web Service:
+   - **Name**: `tots-blog-api`
+   - **Root Directory**: `server`
+   - **Environment**: `Node`
+   - **Build Command**: `npm install && npx prisma generate`
+   - **Start Command**: `npm start`
+4. Add Environment Variables on Render:
+   - `DATABASE_URL`: Your pooled Neon connection string (`-pooler`).
+   - `DATABASE_URL_UNPOOLED`: Your direct Neon connection string.
+   - `ADMIN_SECRET_KEY`: Your secret password to access author mode.
+   - `CORS_ORIGIN`: Your Vercel frontend URL (e.g., `https://your-blog.vercel.app`).
+5. Click **Create Web Service**. Render gives you a live URL (e.g. `https://tots-blog-api.onrender.com`).
 
-### 2. Frontend on Vercel (React)
-1. In [Vercel](https://vercel.com), click **Add New Project** → Import your GitHub repo.
+### 2. Frontend on Vercel (React + Tailwind)
+1. In [Vercel](https://vercel.com), click **Add New Project** → Import your GitHub repository.
 2. In project configuration:
    - **Framework Preset**: Vite
    - **Root Directory**: Click edit and select `client`
 3. Add Environment Variable:
-   - `VITE_API_URL`: `https://adrian-blog-api.up.railway.app/api`
+   - `VITE_API_URL`: `https://tots-blog-api.onrender.com/api` (your Render backend URL + `/api`)
 4. Click **Deploy**!
