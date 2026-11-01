@@ -1,6 +1,11 @@
-# Adrian's Personal Blog & Essays ✦
+# Adrian's Personal Blog & Essays ✦ (Tots)
 
-> A minimalist, Google Gemini-inspired personal blog designed for seamless integration with your developer portfolio. Built with a decoupled architecture (**React + Tailwind** on the frontend, **Express + Prisma** on the backend).
+> A minimalist, Google Gemini-inspired personal blog integrated with your developer portfolio. Built with a decoupled architecture (**React + Tailwind** on Vercel, **Express + Prisma** on Render, **PostgreSQL** on Neon).
+
+### 🌐 Live Deployments
+- **Frontend**: [https://adrian-blog-tots.vercel.app](https://adrian-blog-tots.vercel.app)
+- **Backend API**: [https://adrian-blog-tots.onrender.com](https://adrian-blog-tots.onrender.com)
+- **API Health Check**: [https://adrian-blog-tots.onrender.com/api/health](https://adrian-blog-tots.onrender.com/api/health)
 
 ---
 
