@@ -24,7 +24,7 @@ export function AdminModal({ isOpen, onClose, isAdmin, onStatusChange }) {
       onStatusChange(true);
       onClose();
     } catch (err) {
-      setError('Invalid admin key. Please verify your server .env ADMIN_SECRET_KEY.');
+      setError(err.message || 'Invalid admin key. Please check your ADMIN_SECRET_KEY on Render.');
     } finally {
       setLoading(false);
     }
