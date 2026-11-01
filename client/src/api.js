@@ -1,6 +1,6 @@
 // API Service for Adrian Blog
 
-const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const BASE_URL = import.meta.env.API_URL || '/api';
 
 export function getAdminKey() {
   return localStorage.getItem('adrian_blog_admin_key') || '';
