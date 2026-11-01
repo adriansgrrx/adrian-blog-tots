@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { ArrowLeft, Calendar, Clock, Eye, Edit3, Share2, Check, Sparkles } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Eye, Edit3, Share2, Check, Loader2 } from 'lucide-react';
 import { api } from '../api';
 
 export function PostDetail({ slug, onBack, onEdit, isAdmin }) {
@@ -55,9 +55,9 @@ export function PostDetail({ slug, onBack, onEdit, isAdmin }) {
 
   if (loading) {
     return (
-      <div className="py-24 flex flex-col items-center justify-center gap-3 text-zinc-500">
-        <Sparkles className="w-6 h-6 text-sky-500 animate-spin" />
-        <p className="text-sm">Loading essay...</p>
+      <div className="py-24 flex items-center justify-center gap-2 text-zinc-400 dark:text-zinc-500">
+        <Loader2 className="w-4 h-4 animate-spin" />
+        <span className="text-xs">Loading...</span>
       </div>
     );
   }

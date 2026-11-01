@@ -5,7 +5,7 @@ import { PostDetail } from './components/PostDetail';
 import { PostEditor } from './components/PostEditor';
 import { AdminModal } from './components/AdminModal';
 import { api, getAdminKey } from './api';
-import { FileText, Globe, Layers, Search, RefreshCw, ArrowUpRight } from 'lucide-react';
+import { FileText, Globe, Layers, Search, Loader2, ArrowUpRight } from 'lucide-react';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -190,9 +190,9 @@ export default function App() {
 
             {/* Posts Feed: No container boxes, divided by clean dividers */}
             {loading ? (
-              <div className="py-20 flex flex-col items-center justify-center gap-3 text-zinc-500">
-                <RefreshCw className="w-5 h-5 animate-spin text-sky-500" />
-                <p className="text-xs">Fetching latest essays...</p>
+              <div className="py-24 flex items-center justify-center gap-2 text-zinc-400 dark:text-zinc-500">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span className="text-xs">Loading...</span>
               </div>
             ) : filteredPosts.length === 0 ? (
               <div className="py-20 text-center">
