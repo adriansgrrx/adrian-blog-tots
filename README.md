@@ -3,7 +3,7 @@
 > A minimalist, Google Gemini-inspired personal blog integrated with your developer portfolio. Built with a decoupled architecture (**React + Tailwind** on Vercel, **Express + Prisma** on Render, **PostgreSQL** on Neon).
 
 ### 🌐 Live Deployments
-- **Frontend**: [https://adrian-blog-tots.vercel.app](https://adrian-blog-tots.vercel.app)
+- **Frontend**: [https://adriantots.vercel.app](https://adriantots.vercel.app)
 - **Backend API**: [https://adrian-blog-tots.onrender.com](https://adrian-blog-tots.onrender.com)
 - **API Health Check**: [https://adrian-blog-tots.onrender.com/api/health](https://adrian-blog-tots.onrender.com/api/health)
 
@@ -59,7 +59,7 @@ When you are ready to persist data to Neon:
    DATABASE_URL="postgresql://username:password@ep-sample-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
    PORT=5000
    ADMIN_SECRET_KEY="your-strong-secret-password"
-   CORS_ORIGIN="http://localhost:5173,https://your-portfolio.vercel.app"
+   CORS_ORIGIN="http://localhost:5173,https://adriantots.vercel.app"
    ```
 4. Push the schema to Neon:
    ```bash
@@ -86,7 +86,7 @@ When you are ready to persist data to Neon:
    - `DATABASE_URL`: Your pooled Neon connection string (`-pooler`).
    - `DATABASE_URL_UNPOOLED`: Your direct Neon connection string.
    - `ADMIN_SECRET_KEY`: Your secret password to access author mode.
-   - `CORS_ORIGIN`: Your Vercel frontend URL (e.g., `https://your-blog.vercel.app`).
+   - `CORS_ORIGIN`: Your Vercel frontend URL (e.g., `https://adriantots.vercel.app`).
 5. Click **Create Web Service**. Render gives you a live URL (e.g. `https://tots-blog-api.onrender.com`).
 
 ### 2. Frontend on Vercel (React + Tailwind)
