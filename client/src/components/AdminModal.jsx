@@ -109,9 +109,6 @@ export function AdminModal({ isOpen, onClose, isAdmin, onStatusChange }) {
                   className="bg-transparent border-none p-0 focus:outline-none text-xs w-full text-zinc-200 placeholder-zinc-600"
                 />
               </div>
-              <p className="text-[11px] text-zinc-500 mt-1">
-                Default: <code className="text-zinc-400">adrian-blog-secret-change-me</code> (configured in server .env)
-              </p>
             </div>
 
             <div className="flex justify-end gap-2 pt-2">

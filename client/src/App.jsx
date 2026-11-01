@@ -122,17 +122,6 @@ export default function App() {
           />
         ) : (
           <div>
-            {/* Minimalist Hero / Portfolio Intro */}
-            <div className="mb-10 sm:mb-12">
-              <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-                Thoughts, stories & <br className="hidden sm:inline" />
-                <span className="gemini-gradient-text">engineering notes.</span>
-              </h1>
-              <p className="text-base text-zinc-400 max-w-xl leading-relaxed">
-                A minimalist space sharing insights on full-stack web applications, modern UI aesthetics, and practical software design.
-              </p>
-            </div>
-
             {/* Filter Pills & Search */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-8 pb-4 border-b border-white/[0.06]">
               {/* Category Pills */}
