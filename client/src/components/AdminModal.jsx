@@ -38,24 +38,24 @@ export function AdminModal({ isOpen, onClose, isAdmin, onStatusChange }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-md rounded-2xl border border-white/[0.1] bg-[#1e1f20] p-6 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/75 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-md rounded-2xl border border-zinc-200 dark:border-white/[0.1] bg-white dark:bg-[#1e1f20] p-6 shadow-2xl">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-zinc-400 hover:text-white p-1 rounded-full hover:bg-white/[0.08]"
+          className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 dark:hover:text-white p-1 rounded-full hover:bg-zinc-100 dark:hover:bg-white/[0.08]"
         >
           <X className="w-4 h-4" />
         </button>
 
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-full bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+          <div className="w-10 h-10 rounded-full bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-600 dark:text-sky-400">
             {isAdmin ? <Unlock className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
           </div>
           <div>
-            <h3 className="text-base font-semibold text-white">
+            <h3 className="text-base font-semibold text-zinc-900 dark:text-white">
               {isAdmin ? 'Author Mode Active' : 'Author Authentication'}
             </h3>
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs text-zinc-500 dark:text-zinc-400">
               {isAdmin
                 ? 'You currently have access to create, edit drafts, and publish.'
                 : 'Enter your admin secret key to unlock authoring controls.'}
@@ -64,14 +64,14 @@ export function AdminModal({ isOpen, onClose, isAdmin, onStatusChange }) {
         </div>
 
         {error && (
-          <div className="mb-4 p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-xs text-rose-300">
+          <div className="mb-4 p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-xs text-rose-600 dark:text-rose-300">
             {error}
           </div>
         )}
 
         {isAdmin ? (
           <div className="space-y-4">
-            <div className="flex items-center gap-2 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300">
+            <div className="flex items-center gap-2 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-700 dark:text-emerald-300">
               <CheckCircle className="w-4 h-4 shrink-0" />
               <span>Logged in with secret key. Drafts and writing tools are visible.</span>
             </div>
@@ -80,14 +80,14 @@ export function AdminModal({ isOpen, onClose, isAdmin, onStatusChange }) {
               <button
                 type="button"
                 onClick={handleLogout}
-                className="text-xs font-medium text-rose-400 hover:text-rose-300 px-4 py-2 rounded-full border border-rose-500/30 hover:bg-rose-500/10 transition-colors"
+                className="text-xs font-medium text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 px-4 py-2 rounded-full border border-rose-500/30 hover:bg-rose-500/10 transition-colors"
               >
                 Lock / Sign Out
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="text-xs font-medium bg-white/[0.08] hover:bg-white/[0.14] text-white px-4 py-2 rounded-full transition-colors"
+                className="text-xs font-medium bg-zinc-100 dark:bg-white/[0.08] hover:bg-zinc-200 dark:hover:bg-white/[0.14] text-zinc-900 dark:text-white px-4 py-2 rounded-full transition-colors"
               >
                 Close
               </button>
@@ -96,17 +96,17 @@ export function AdminModal({ isOpen, onClose, isAdmin, onStatusChange }) {
         ) : (
           <form onSubmit={handleVerify} className="space-y-4">
             <div>
-              <label className="block text-[11px] font-medium text-zinc-400 uppercase tracking-wider mb-1.5">
+              <label className="block text-[11px] font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1.5">
                 Admin Secret Key
               </label>
-              <div className="flex items-center rounded-xl bg-[#131314] border border-white/[0.08] px-3 py-2 text-xs">
-                <Key className="w-4 h-4 text-zinc-500 mr-2" />
+              <div className="flex items-center rounded-xl bg-zinc-100 dark:bg-[#131314] border border-zinc-200 dark:border-white/[0.08] px-3 py-2 text-xs">
+                <Key className="w-4 h-4 text-zinc-400 dark:text-zinc-500 mr-2" />
                 <input
                   type="password"
                   value={keyInput}
                   onChange={(e) => setKeyInput(e.target.value)}
                   placeholder="e.g. adrian-blog-secret-change-me"
-                  className="bg-transparent border-none p-0 focus:outline-none text-xs w-full text-zinc-200 placeholder-zinc-600"
+                  className="bg-transparent border-none p-0 focus:outline-none text-xs w-full text-zinc-900 dark:text-zinc-200 placeholder-zinc-400 dark:placeholder-zinc-600"
                 />
               </div>
             </div>
@@ -115,7 +115,7 @@ export function AdminModal({ isOpen, onClose, isAdmin, onStatusChange }) {
               <button
                 type="button"
                 onClick={onClose}
-                className="text-xs text-zinc-400 hover:text-white px-4 py-2 rounded-full hover:bg-white/[0.04]"
+                className="text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-4 py-2 rounded-full hover:bg-zinc-100 dark:hover:bg-white/[0.04]"
               >
                 Cancel
               </button>

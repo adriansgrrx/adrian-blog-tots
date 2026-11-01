@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Sun, Moon, Lock, Unlock, Plus, ArrowUpRight } from 'lucide-react';
+import { Sun, Moon, Lock, Unlock, Plus, ArrowUpRight } from 'lucide-react';
 
 export function Navbar({
   darkMode,
@@ -7,11 +7,10 @@ export function Navbar({
   isAdmin,
   onOpenAdminModal,
   onNewPost,
-  currentView,
   setCurrentView,
 }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/[0.08] dark:border-white/[0.08] bg-[#131314]/85 dark:bg-[#131314]/85 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-40 border-b border-zinc-200 dark:border-white/[0.08] bg-[#fafafa]/85 dark:bg-[#131314]/85 backdrop-blur-md transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Brand / Logo */}
         <button
@@ -19,10 +18,10 @@ export function Navbar({
           className="flex items-center gap-2.5 text-left group focus:outline-none"
         >
           <div>
-            <span className="text-base font-semibold tracking-tight text-white flex items-center gap-1.5">
+            <span className="text-base font-bold tracking-tight text-zinc-900 dark:text-white flex items-center gap-1.5">
               Tots
             </span>
-            <span className="block text-[11px] text-zinc-400 font-normal -mt-0.5">
+            <span className="block text-[11px] text-zinc-500 dark:text-zinc-400 font-normal -mt-0.5">
               Tech, Thoughts, and Stories
             </span>
           </div>
@@ -32,15 +31,14 @@ export function Navbar({
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Back to Portfolio Link */}
           <a
-            href="/"
-            onClick={(e) => {
-              // Can link to your main portfolio url
-              console.log('Navigating to portfolio...');
-            }}
-            className="hidden sm:inline-flex items-center gap-1 text-xs text-zinc-400 hover:text-white px-3 py-1.5 rounded-full border border-white/[0.08] hover:border-white/[0.2] transition-colors"
+            href="https://www.adrianesguerra.site/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white px-3 py-1.5 rounded-full border border-zinc-200 dark:border-white/[0.08] hover:border-zinc-400 dark:hover:border-white/[0.2] hover:bg-zinc-100/50 dark:hover:bg-white/[0.04] transition-all"
+            title="Visit Adrian's Portfolio"
           >
             <span>Portfolio</span>
-            <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+            <ArrowUpRight className="w-3 h-3 text-zinc-500 dark:text-zinc-400" />
           </a>
 
           {/* New Post Button (Only when Admin is unlocked) */}
@@ -60,8 +58,8 @@ export function Navbar({
             title={isAdmin ? 'Admin Mode Active (Click to lock)' : 'Author Login (Admin)'}
             className={`p-2 rounded-full border text-xs transition-colors ${
               isAdmin
-                ? 'border-sky-500/50 bg-sky-500/10 text-sky-300 hover:bg-sky-500/20'
-                : 'border-white/[0.08] text-zinc-400 hover:text-white hover:border-white/[0.2] hover:bg-white/[0.04]'
+                ? 'border-sky-500/50 bg-sky-500/10 text-sky-600 dark:text-sky-300 hover:bg-sky-500/20'
+                : 'border-zinc-200 dark:border-white/[0.08] text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-400 dark:hover:border-white/[0.2] hover:bg-zinc-100 dark:hover:bg-white/[0.04]'
             }`}
           >
             {isAdmin ? <Unlock className="w-3.5 h-3.5" /> : <Lock className="w-3.5 h-3.5" />}
@@ -70,10 +68,15 @@ export function Navbar({
           {/* Dark / Light Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            title="Toggle color theme"
-            className="p-2 rounded-full border border-white/[0.08] text-zinc-400 hover:text-white hover:border-white/[0.2] hover:bg-white/[0.04] transition-colors"
+            title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label="Toggle theme"
+            className="p-2 rounded-full border border-zinc-200 dark:border-white/[0.08] text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-400 dark:hover:border-white/[0.2] hover:bg-zinc-100 dark:hover:bg-white/[0.04] transition-colors"
           >
-            {darkMode ? <Sun className="w-3.5 h-3.5 text-amber-300" /> : <Moon className="w-3.5 h-3.5 text-sky-300" />}
+            {darkMode ? (
+              <Sun className="w-3.5 h-3.5 text-amber-400" />
+            ) : (
+              <Moon className="w-3.5 h-3.5 text-sky-600" />
+            )}
           </button>
         </div>
       </div>
